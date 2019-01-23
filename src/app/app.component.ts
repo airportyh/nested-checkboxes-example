@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nested-checkboxes';
+  subregions = [
+    { name: "South America" },
+    { name: "North America" }
+  ];
+  getSubregionName = (subregion) => subregion.name;
 }
