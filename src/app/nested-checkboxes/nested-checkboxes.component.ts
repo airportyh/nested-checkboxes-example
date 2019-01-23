@@ -7,9 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NestedCheckboxesComponent implements OnInit {
 
-  @Input() parentItemName: string;
-  @Input() childItems: any[];
-  @Input() getChildItemDisplayName: (childItem) => string;
+  @Input() items: any[];
+  @Input() getChildItems: (item) => any[];
+  @Input() getItemDisplayName: (item) => string;
 
   ngOnInit() {
   }
