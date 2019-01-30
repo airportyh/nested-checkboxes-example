@@ -14,7 +14,6 @@ export class NestedCheckboxesComponent implements OnInit {
   private childItems: any[];
 
   ngOnInit() {
-    this.rootItem = this.treeProvider.getRootItem();
     this.childItems = this.treeProvider.getChildItems(this.rootItem);
   }
 

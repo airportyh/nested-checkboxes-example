@@ -3,8 +3,10 @@
 </label>
 <ul>
   <li *ngFor="let childItem of childItems">
-    <label>
-      <input type="checkbox">{{getItemDisplayName(childItem)}}
-    </label>
+    <app-nested-checkboxes
+      [treeProvider]="treeProvider"
+      [rootItem]="childItem"
+      [getItemDisplayName]="getItemDisplayName"
+    ></app-nested-checkboxes>
   </li>
 </ul>
