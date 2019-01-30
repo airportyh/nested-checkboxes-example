@@ -1,5 +1,5 @@
 <app-nested-checkboxes
-  parentItemName="Americas"
-  [childItems]="subregions"
-  [getChildItemDisplayName]="getSubregionName"
+  [rootItem]="checkboxTreeProvider.getRootItem()"
+  [treeProvider]="checkboxTreeProvider"
+  [getItemDisplayName]="getDisplayName"
 ></app-nested-checkboxes>
