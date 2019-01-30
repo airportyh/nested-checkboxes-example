@@ -1,5 +1,4 @@
 <app-nested-checkboxes
-  [items]="regions"
-  [getChildItems]="getSubRegions"
+  [treeProvider]="checkboxTreeProvider"
   [getItemDisplayName]="getDisplayName"
 ></app-nested-checkboxes>

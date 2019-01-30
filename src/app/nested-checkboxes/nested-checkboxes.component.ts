@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TreeProvider } from '../tree-provider/tree-provider.interface';
 
 @Component({
   selector: 'app-nested-checkboxes',
@@ -7,11 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NestedCheckboxesComponent implements OnInit {
 
-  @Input() items: any[];
-  @Input() getChildItems: (item) => any[];
-  @Input() getItemDisplayName: (item) => string;
+  @Input() rootItem: any;
+  @Input() treeProvider: TreeProvider<any>;
+  @Input() getItemDisplayName: (item: any) => string;
+  private childItems: any[];
 
   ngOnInit() {
+    this.rootItem = this.treeProvider.getRootItem();
+    this.childItems = this.treeProvider.getChildItems(this.rootItem);
   }
 
 }

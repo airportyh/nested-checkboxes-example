@@ -1,4 +1,26 @@
 import { Component } from '@angular/core';
+import { TreeProvider } from './tree-provider/tree-provider.interface';
+
+interface Region {
+  name: string;
+  subregions?: Region[];
+}
+
+class CheckboxTreeProvider implements TreeProvider<Region> {
+  getRootItem(): Region {
+    return {
+      name: "Americas",
+      subregions: [
+        { name: "South America" },
+        { name: "North America" }
+      ]
+    };
+  }
+
+  getChildItems(region: Region): Region[] {
+    return region.subregions || [];
+  }
+}
 
 @Component({
   selector: 'app-root',
@@ -7,22 +29,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nested-checkboxes';
-  regions = [
-    {
-      name: "Americas",
-      subregions: [
-        { name: "South America" },
-        { name: "North America" }
-      ]
-    },
-    {
-      name: "Europe",
-      subregions: [
-        { name: "West Europe" },
-        { name: "East Europe" }
-      ]
-    },
-  ];
-  getSubRegions = (region) => region.subregions;
+  checkboxTreeProvider = new CheckboxTreeProvider();
   getDisplayName = (thing) => thing.name;
 }
